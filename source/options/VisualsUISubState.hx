@@ -87,6 +87,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool');
 		addOption(option);
 		
+		var option:Option = new Option('Language:',
+			"What is your language?",
+			'language',
+			'string',
+			['English', 'Português (BR)', 'Deutsch']);
+		addOption(option);
+		
 		var option:Option = new Option('Time Bar:',
 			"What should the Time Bar display?",
 			'timeBarType',
