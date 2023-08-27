@@ -3444,7 +3444,7 @@ class PlayState extends MusicBeatState
 				ratingNameD = ratingStuffD[ratingStuffD.length-1][0]; //Uses last string
 				if(ratingPercent < 1)
 					for (i in 0...ratingStuffD.length-1)
-						if(ratingPercent < ratingStuffF[i][1])
+						if(ratingPercent < ratingStuffD[i][1])
 						{
 							ratingNameD = ratingStuffD[i][0];
 							break;
