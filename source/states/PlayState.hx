@@ -1159,6 +1159,8 @@ class PlayState extends MusicBeatState
 	public function updateScore(miss:Bool = false)
 	{
 		var str:String = ratingName;
+		var strPTBR:String = ratingNamePTBR;
+		var strD:String = ratingNameD;
 		if(totalPlayed != 0)
 		{
 			var percent:Float = CoolUtil.floorDecimal(ratingPercent * 100, 2);
@@ -1179,7 +1181,7 @@ class PlayState extends MusicBeatState
 		
 		scoreTxt.text = 'Pontuação: ' + songScore
 		+ ' | Erros: ' + songMisses
-		+ ' | Precisão: ' + str;
+		+ ' | Precisão: ' + strPTBR;
 		
 		}
 		
@@ -1189,7 +1191,7 @@ class PlayState extends MusicBeatState
         
 		scoreTxt.text = 'Punktzahl: ' + songScore
 		+ ' | Fehler: ' + songMisses
-		+ ' | Präzision: ' + str;
+		+ ' | Präzision: ' + strD;
 		
 		}
 
