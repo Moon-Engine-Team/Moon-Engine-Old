@@ -546,28 +546,42 @@ class TitleState extends MusicBeatState
 				// credTextShit.text += '\npresent...';
 				// credTextShit.addText();
 				case 5:
+					#if PSYCH_WATERMARKS
+					createCoolText(['Psych Engine by'], 40);
+					#end
+				// credTextShit.visible = true;
+				case 6:
+					#if PSYCH_WATERMARKS
+					addMoreText('Shadow Mario', 40);
+					addMoreText('Riveren', 40);
+					#else
+					addMoreText('present');
+					#end
+				// credTextShit.text += '\npresent...';
+				// credTextShit.addText();
+				case 7:
 					deleteCoolText();
 				// credTextShit.visible = false;
 				// credTextShit.text = 'In association \nwith';
 				// credTextShit.screenCenter();
-				case 6:
+				case 8:
 					#if PSYCH_WATERMARKS
 					createCoolText(['Not associated', 'with'], -40);
 					#else
 					createCoolText(['In association', 'with'], -40);
 					#end
-				case 8:
+				case 9:
 					addMoreText('newgrounds', -40);
 					ngSpr.visible = true;
 				// credTextShit.text += '\nNewgrounds';
-				case 9:
+				case 10:
 					deleteCoolText();
 					ngSpr.visible = false;
 				// credTextShit.visible = false;
 
 				// credTextShit.text = 'Shoutouts Tom Fulp';
 				// credTextShit.screenCenter();
-				case 10:
+				case 11:
 					createCoolText([curWacky[0]]);
 				// credTextShit.visible = true;
 				case 12:
