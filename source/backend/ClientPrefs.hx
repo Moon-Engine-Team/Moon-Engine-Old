@@ -38,6 +38,7 @@ class SaveVariables {
 
 	public var ghostTapping:Bool = true;
 	public var timeBarType:String = 'Time Left';
+	public var language:String = 'English';
 
   //Mobile Stuff
 	public var hitboxmode:String = 'New';
