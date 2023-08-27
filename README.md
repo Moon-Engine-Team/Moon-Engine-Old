@@ -1,8 +1,5 @@
 # Friday Night Funkin': Moon Engine - Psych Engine Modification
-Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
-
-## Installation:
-You must have [Haxe version 4.2.5](https://haxe.org/download/version/4.2.5/), seriously, stop using older or newer versions, it won't work!
+Moon Engine is a modification of the most famous psych engine of the moment, the difference is that this engine is made for mobile players.
 
 open up a Command Prompt/PowerShell or Terminal, type `haxelib install hmm`
 
