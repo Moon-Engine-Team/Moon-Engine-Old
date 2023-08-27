@@ -1146,7 +1146,9 @@ class PlayState extends MusicBeatState
 		+ ' | Rating: ' + str;
 		
 		}
-		else(ClientPrefs.data.language == 'Português (BR)')
+		
+		else if(ClientPrefs.data.language == 'Português (BR)')
+		
 		{
 		
 		scoreTxt.text = 'Pontuação: ' + songScore
@@ -1154,7 +1156,9 @@ class PlayState extends MusicBeatState
 		+ ' | Precisão: ' + str;
 		
 		}
-		else(ClientPrefs.data.language == 'Deutsch')
+		
+		else if(ClientPrefs.data.language == 'Deutsch')
+		
         {
         
 		scoreTxt.text = 'Punktzahl: ' + songScore
