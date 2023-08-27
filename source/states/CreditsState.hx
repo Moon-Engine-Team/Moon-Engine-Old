@@ -44,10 +44,13 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var defaultList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-	   	['Android Port'],
+            ['Moon Engine Team'],
+            ['BarbaraOficial',		'barbaraoficial',		'Someone help me. I did it all (oof)',							'https://youtube.com/@BarbaraAFOficial?si=c8aGczQQstVIRQRs',	'FFFF00'],
+	   	 ['Psych Engine Android Port'],
 			['MaysLastPlay',		'MaysLastPlay',		'Main Porter',							'https://www.youtube.com/channel/UCx0LxtFR8ROd9sFAq-UxDfw',	'5DE7FF'],
-			 ['Beihu',		'beihu',		'Second Porter',    'https://youtube.com/@beihu235',	'FFC0CB'],
-	    ['FutureDorito',		'dorito',				'Third Porter',			 'https://www.youtube.com/@Futuredorito',	    'CFB46B'],
+			['Beihu',		'beihu',		'Second Porter',    'https://youtube.com/@beihu235',	'FFC0CB'],
+	        ['FutureDorito',		'dorito',				'Third Porter',			 'https://www.youtube.com/@Futuredorito',	    'CFB46B'],
+	        [''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
 			['Riveren',				'riveren',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/riverennn',		'B42F71'],
