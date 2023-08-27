@@ -94,6 +94,32 @@ class PlayState extends MusicBeatState
 		['Sick!', 1], //From 90% to 99%
 		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
+	
+	public static var ratingStuffPTBR:Array<Dynamic> = [
+		['Você é um merda!', 0.2], //From 0% to 19%
+		['Merda', 0.4], //From 20% to 39%
+		['Ruim', 0.5], //From 40% to 49%
+		['Bruh', 0.6], //From 50% to 59%
+		['Meh', 0.69], //From 60% to 68%
+		['Legal', 0.7], //69%
+		['Bom', 0.8], //From 70% to 79%
+		['Ótimo', 0.9], //From 80% to 89%
+		['Incrível!', 1], //From 90% to 99%
+		['Perfeito!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+	];
+	
+	public static var ratingStuffD:Array<Dynamic> = [
+		['Du gehtst mir auf die Nerven!', 0.2], //From 0% to 19%
+		['Scheisse', 0.4], //From 20% to 39%
+		['Schlecht', 0.5], //From 40% to 49%
+		['Bruh', 0.6], //From 50% to 59%
+		['Meh', 0.69], //From 60% to 68%
+		['Hübsch', 0.7], //69%
+		['Gut', 0.8], //From 70% to 79%
+		['Großartig', 0.9], //From 80% to 89%
+		['Krank!', 1], //From 90% to 99%
+		['Perfekt!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+	];
 
 	//event variables
 	private var isCameraOnForcedPos:Bool = false;
@@ -3376,6 +3402,8 @@ class PlayState extends MusicBeatState
 	}
 
 	public var ratingName:String = '?';
+	public var ratingNamePTBR:String = '?';
+	public var ratingNameD:String = '?';
 	public var ratingPercent:Float;
 	public var ratingFC:String;
 	public function RecalculateRating(badHit:Bool = false) {
@@ -3394,7 +3422,7 @@ class PlayState extends MusicBeatState
 				ratingPercent = Math.min(1, Math.max(0, totalNotesHit / totalPlayed));
 				//trace((totalNotesHit / totalPlayed) + ', Total: ' + totalPlayed + ', notes hit: ' + totalNotesHit);
 
-				// Rating Name
+				// Rating Name English
 				ratingName = ratingStuff[ratingStuff.length-1][0]; //Uses last string
 				if(ratingPercent < 1)
 					for (i in 0...ratingStuff.length-1)
@@ -3403,13 +3431,46 @@ class PlayState extends MusicBeatState
 							ratingName = ratingStuff[i][0];
 							break;
 						}
+				// Rating Name Português (BR)
+				ratingNamePTBR = ratingStuffPTBR[ratingStuffPTBR.length-1][0]; //Uses last string
+				if(ratingPercent < 1)
+					for (i in 0...ratingStuffPTBR.length-1)
+						if(ratingPercent < ratingStuffPTBR[i][1])
+						{
+							ratingNamePTBR = ratingStuffPTBR[i][0];
+							break;
+						}
+				// Rating Name Deutsch
+				ratingNameD = ratingStuffD[ratingStuffD.length-1][0]; //Uses last string
+				if(ratingPercent < 1)
+					for (i in 0...ratingStuffD.length-1)
+						if(ratingPercent < ratingStuffF[i][1])
+						{
+							ratingNameD = ratingStuffD[i][0];
+							break;
+						}
 			}
 			fullComboFunction();
 		}
 		updateScore(badHit); // score will only update after rating is calculated, if it's a badHit, it shouldn't bounce -Ghost
+      if(ClientPrefs.data.language == 'English')
+       {
 		setOnScripts('rating', ratingPercent);
 		setOnScripts('ratingName', ratingName);
 		setOnScripts('ratingFC', ratingFC);
+		}
+		else if(ClientPrefs.data.language == 'Português (BR)')
+       {
+		setOnScripts('rating', ratingPercent);
+		setOnScripts('ratingName', ratingNamePTBR);
+		setOnScripts('ratingFC', ratingFC);
+		}
+		else if(ClientPrefs.data.language == 'Deutsch')
+       {
+		setOnScripts('rating', ratingPercent);
+		setOnScripts('ratingName', ratingNameD);
+		setOnScripts('ratingFC', ratingFC);
+		}
 	}
 
 	function fullComboUpdate()
