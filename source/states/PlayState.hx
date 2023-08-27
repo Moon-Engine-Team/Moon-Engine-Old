@@ -1138,10 +1138,24 @@ class PlayState extends MusicBeatState
 			var percent:Float = CoolUtil.floorDecimal(ratingPercent * 100, 2);
 			str += ' ($percent%) - $ratingFC';
 		}
-
+         if(ClientPrefs.data.language == 'English')
+        {
 		scoreTxt.text = 'Score: ' + songScore
 		+ ' | Misses: ' + songMisses
 		+ ' | Rating: ' + str;
+		}
+		else(ClientPrefs.data.language == 'Português (BR)')
+		{
+		scoreTxt.text = 'Pontuação: ' + songScore
+		+ ' | Erros: ' + songMisses
+		+ ' | Precisão: ' + str;
+		}
+		else(ClientPrefs.data.language == 'Deutsch')
+        {
+		scoreTxt.text = 'Punktzahl: ' + songScore
+		+ ' | Fehler: ' + songMisses
+		+ ' | Präzision: ' + str;
+		}
 
 		if(ClientPrefs.data.scoreZoom && !miss && !cpuControlled)
 		{
