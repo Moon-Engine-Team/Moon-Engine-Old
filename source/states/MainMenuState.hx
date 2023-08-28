@@ -97,15 +97,32 @@ class MainMenuState extends MusicBeatState
 			scale = 6 / optionShit.length;
 		}*/
 		
+		switch (ClientPrefs.data.menuStyle)
+        {
+		
+		case 'Moon Engine': 
 		coolBackground = new FlxSprite(-120).loadGraphic(Paths.image('mainmenu/menuBackground/coolBackground'));
 		coolBackground.setGraphicSize(Std.int(background.width * 1.175));
 		coolBackground.updateHitbox();
 		coolBackground.screenCenter();
 		coolBackground.antialiasing = ClientPrefs.globalAntialiasing;
 		add(coolBackground);
+		
+		case 'SB Engine': 
+		coolBackground = new FlxSprite(-120).loadGraphic(Paths.image('mainmenu/menuBackground/coolBackground_sb-engine'));
+		coolBackground.setGraphicSize(Std.int(background.width * 1.175));
+		coolBackground.updateHitbox();
+		coolBackground.screenCenter();
+		coolBackground.antialiasing = ClientPrefs.globalAntialiasing;
+		add(coolBackground);
+		
+		}
 
 		for (i in 0...optionShit.length)
 		{
+		switch (ClientPrefs.data.menuStyle)
+         {
+         case 'Moon Engine': 
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
@@ -124,6 +141,46 @@ class MainMenuState extends MusicBeatState
 			menuItem.scrollFactor.set(0, scr);
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
+			
+		case 'Psych Engine': 
+			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
+			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
+			menuItem.antialiasing = ClientPrefs.data.antialiasing;
+			menuItem.scale.x = scale;
+			menuItem.scale.y = scale;
+			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
+			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
+			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+			menuItem.animation.play('idle');
+			menuItem.ID = i;
+			menuItem.screenCenter(X);
+			menuItems.add(menuItem);
+			var scr:Float = (optionShit.length - 4) * 0.135;
+			if(optionShit.length < 6) scr = 0;
+			menuItem.scrollFactor.set(0, scr);
+			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
+			menuItem.updateHitbox();
+			
+		case 'SB Engine':
+			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
+			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
+			menuItem.antialiasing = ClientPrefs.data.antialiasing;
+			menuItem.scale.x = scale;
+			menuItem.scale.y = scale;
+			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
+			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
+			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+			menuItem.animation.play('idle');
+			menuItem.ID = i;
+			menuItem.screenCenter(X);
+			menuItem.x += 290;
+			menuItems.add(menuItem);
+			var scr:Float = (optionShit.length - 4) * 0.135;
+			if(optionShit.length < 6) scr = 0;
+			menuItem.scrollFactor.set(0, scr);
+			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
+			menuItem.updateHitbox();
+			}
 		}
 
 		FlxG.camera.follow(camFollow, null, 0);
