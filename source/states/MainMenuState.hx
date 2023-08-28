@@ -103,18 +103,18 @@ class MainMenuState extends MusicBeatState
 		
 		case 'Moon Engine': 
 		coolBackground = new FlxSprite(-120).loadGraphic(Paths.image('mainmenu/menuBackground/coolBackground'));
-		coolBackground.setGraphicSize(Std.int(background.width * 1.175));
+		coolBackground.setGraphicSize(Std.int(magenta.width * 1.175));
 		coolBackground.updateHitbox();
 		coolBackground.screenCenter();
-		coolBackground.antialiasing = ClientPrefs.globalAntialiasing;
+		coolBackground.antialiasing = ClientPrefs.data.antialiasing;
 		add(coolBackground);
 		
 		case 'SB Engine': 
 		coolBackground = new FlxSprite(-120).loadGraphic(Paths.image('mainmenu/menuBackground/coolBackground_sb-engine'));
-		coolBackground.setGraphicSize(Std.int(background.width * 1.175));
+		coolBackground.setGraphicSize(Std.int(magenta.width * 1.175));
 		coolBackground.updateHitbox();
 		coolBackground.screenCenter();
-		coolBackground.antialiasing = ClientPrefs.globalAntialiasing;
+		coolBackground.antialiasing = ClientPrefs.data.antialiasing;
 		add(coolBackground);
 		
 		}
