@@ -96,6 +96,13 @@ class MainMenuState extends MusicBeatState
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
 		}*/
+		
+		coolBackground = new FlxSprite(-120).loadGraphic(Paths.image('mainmenu/menuBackground/coolBackground'));
+		coolBackground.setGraphicSize(Std.int(background.width * 1.175));
+		coolBackground.updateHitbox();
+		coolBackground.screenCenter();
+		coolBackground.antialiasing = ClientPrefs.globalAntialiasing;
+		add(coolBackground);
 
 		for (i in 0...optionShit.length)
 		{
@@ -110,6 +117,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			menuItem.screenCenter(X);
+			menuItem.x += 290;
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
@@ -120,7 +128,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0);
 
-        var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Moon Engine v" + moonEngineVersion, 12);
+        var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Moon Engine v" + moonEngineVersion + " (Modified Psych Engine)", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
