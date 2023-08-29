@@ -80,13 +80,6 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);
-		
-		var option:Option = new Option('Menu Style:',
-			"you will be able to change the music and style of the menu",
-			'menuStyle',
-			'string',
-			['Moon Engine', 'Psych Engine', 'SB Engine']);
-		addOption(option);
 
 		var option:Option = new Option('Hide HUD',
 			'If checked, hides most HUD elements.',
