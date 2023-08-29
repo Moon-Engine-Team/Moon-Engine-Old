@@ -20,7 +20,6 @@ class MainMenuState extends MusicBeatState
 	public static var psychEngineVersion:String = '0.7.1h'; //The version of the psych engine being modified
 	public static var curSelected:Int = 0;
 
-    var coolBackground:FlxSprite;
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
@@ -74,7 +73,7 @@ class MainMenuState extends MusicBeatState
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
-
+		
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
@@ -97,58 +96,9 @@ class MainMenuState extends MusicBeatState
 			scale = 6 / optionShit.length;
 		}*/
 		
-		switch (ClientPrefs.data.menuStyle)
-        {
-		
-		case 'Moon Engine': 
-		coolBackground = new FlxSprite(-120).loadGraphic(Paths.image('mainmenu/menuBackground/coolBackground'));
-		coolBackground.setGraphicSize(Std.int(magenta.width * 1.175));
-		coolBackground.updateHitbox();
-		coolBackground.screenCenter();
-		coolBackground.antialiasing = ClientPrefs.data.antialiasing;
-		add(coolBackground);
-		
-		case 'SB Engine': 
-		coolBackground = new FlxSprite(-120).loadGraphic(Paths.image('mainmenu/menuBackground/coolBackground_sb-engine'));
-		coolBackground.setGraphicSize(Std.int(magenta.width * 1.175));
-		coolBackground.updateHitbox();
-		coolBackground.screenCenter();
-		coolBackground.antialiasing = ClientPrefs.data.antialiasing;
-		add(coolBackground);
-		
-		}
 
 		for (i in 0...optionShit.length)
 		{
-		switch (ClientPrefs.data.menuStyle)
-         {
-         case 'Moon Engine': 
-			var offset:Float = 108 - (Math.max(optionSelect.length, 4) - 4) * 80;
-			var menuItem:FlxSprite = new FlxSprite(0, (i * 140) + offset);
-			menuItem.scale.x = scale;
-			menuItem.scale.y = scale;
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionSelect[i]);
-			menuItem.animation.addByPrefix('idle', optionSelect[i] + " basic", 24);
-			menuItem.animation.addByPrefix('selected', optionSelect[i] + " white", 24);
-			menuItem.animation.play('idle');
-			menuItem.ID = i;
-			menuItem.screenCenter(X);
-			menuItem.x += 290;
-			menuItems.add(menuItem);
-			var scr:Float = (optionSelect.length - 4) * 0.135;
-			if (optionSelect.length < 6)
-				scr = 0;
-			menuItem.scrollFactor.set();
-			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
-			menuItem.updateHitbox();
-			if (firstStart)
-				FlxTween.tween(menuItem, {y: 60 + (i * 130)}, 1 + (i * 0.25), {
-					ease: FlxEase.expoInOut,
-					onComplete: function(flxTween:FlxTween) {
-						finishedFunnyMove = true;
-						changeItem();
-			
-		case 'Psych Engine': 
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
 			menuItem.antialiasing = ClientPrefs.data.antialiasing;
@@ -166,33 +116,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.scrollFactor.set(0, scr);
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
-			
-		case 'SB Engine':
-			var offset:Float = 108 - (Math.max(optionSelect.length, 4) - 4) * 80;
-			var menuItem:FlxSprite = new FlxSprite(0, (i * 140) + offset);
-			menuItem.scale.x = scale;
-			menuItem.scale.y = scale;
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionSelect[i]);
-			menuItem.animation.addByPrefix('idle', optionSelect[i] + " basic", 24);
-			menuItem.animation.addByPrefix('selected', optionSelect[i] + " white", 24);
-			menuItem.animation.play('idle');
-			menuItem.ID = i;
-			menuItem.screenCenter(X);
-			menuItem.x += 290;
-			menuItems.add(menuItem);
-			var scr:Float = (optionSelect.length - 4) * 0.135;
-			if (optionSelect.length < 6)
-				scr = 0;
-			menuItem.scrollFactor.set();
-			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
-			menuItem.updateHitbox();
-			if (firstStart)
-				FlxTween.tween(menuItem, {y: 60 + (i * 130)}, 1 + (i * 0.25), {
-					ease: FlxEase.expoInOut,
-					onComplete: function(flxTween:FlxTween) {
-						finishedFunnyMove = true;
-						changeItem();
-			}
 		}
 
 		FlxG.camera.follow(camFollow, null, 0);
