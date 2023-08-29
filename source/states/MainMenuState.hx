@@ -20,8 +20,8 @@ class MainMenuState extends MusicBeatState
 	public static var psychEngineVersion:String = '0.7.1h'; //The version of the psych engine being modified
 	public static var curSelected:Int = 0;
 
+    var coolBackground:FlxSprite;
 	var menuItems:FlxTypedGroup<FlxSprite>;
-	var coolBackground:FlxSprite;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	
@@ -80,7 +80,7 @@ class MainMenuState extends MusicBeatState
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
-		magenta.scrollFactor.set(0, yScroll);
+		magenta.scrollFactor.set();
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
 		magenta.updateHitbox();
 		magenta.screenCenter();
@@ -135,7 +135,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			menuItem.screenCenter(X);
-			menuItem.x += 290;
+			menuItem.x = 290;
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
@@ -174,7 +174,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			menuItem.screenCenter(X);
-			menuItem.x += 290;
+			menuItem.x = 290;
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
