@@ -1181,7 +1181,7 @@ class PlayState extends MusicBeatState
 		
 		scoreTxt.text = 'Pontuação: ' + songScore
 		+ ' | Erros: ' + songMisses
-		+ ' | Precisão: ' + strPTBR;
+		+ ' | Precisão: ' + str;
 		
 		}
 		
@@ -1191,7 +1191,7 @@ class PlayState extends MusicBeatState
         
 		scoreTxt.text = 'Punktzahl: ' + songScore
 		+ ' | Fehler: ' + songMisses
-		+ ' | Präzision: ' + strD;
+		+ ' | Präzision: ' + str;
 		
 		}
 
