@@ -164,8 +164,21 @@ class FreeplayState extends MusicBeatState
 
 		#if PRELOAD_ALL
 		#if android
+        if(ClientPrefs.data.language == 'English')
+        {
 		var leText:String = "Press X to listen to the Song / Press C to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy.";
 		var size:Int = 16;
+		}
+		else if(ClientPrefs.data.language == 'Português (BR)')
+		{
+		var leText:String = "Pressione X para ouvir a música / Pressione C para abrir o menu Gameplay Changers / Pressione Y para redefinir sua pontuação e precisão.";
+		var size:Int = 16;
+		}
+		else if(ClientPrefs.data.language == 'Deutsch')
+        {
+		var leText:String = "Drücken Sie X, um das Lied anzuhören / Drücken Sie C, um das Gameplay-Changers-Menü zu öffnen / Drücken Sie Y, um Ihre Punktzahl und Genauigkeit zurückzusetzen.";
+		var size:Int = 16;
+		}
 		#else
 		var leText:String = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
 		var size:Int = 16;
@@ -245,9 +258,22 @@ class FreeplayState extends MusicBeatState
 		while(ratingSplit[1].length < 2) { //Less than 2 decimals in it, add decimals then
 			ratingSplit[1] += '0';
 		}
-
+		
+        if(ClientPrefs.data.language == 'English')
+        {
 		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
 		positionHighscore();
+		}
+		else if(ClientPrefs.data.language == 'Português (BR)')
+        {
+		scoreText.text = 'MELHOR PONTUAÇÃO: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+		positionHighscore();
+		}
+		else if(ClientPrefs.data.language == 'Deutsch')
+        {
+		scoreText.text = 'BESTES ERGEBNIS: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+		positionHighscore();
+		}
 
 		var shiftMult:Int = 1;
 		if(FlxG.keys.pressed.SHIFT  #if android || MusicBeatState._virtualpad.buttonZ.pressed #end) shiftMult = 3;

@@ -193,8 +193,19 @@ class StoryMenuState extends MusicBeatState
 		// scoreText.setFormat('VCR OSD Mono', 32);
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, FlxMath.bound(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
-
+		
+        if(ClientPrefs.data.language == 'English')
+        {
 		scoreText.text = "WEEK SCORE:" + lerpScore;
+		}
+		else if(ClientPrefs.data.language == 'Português (BR)')
+        {
+		scoreText.text = "PONTUAÇÃO DA SEMANA:" + lerpScore;
+		}
+		else if(ClientPrefs.data.language == 'English')
+        {
+		scoreText.text = "WOCHENPUNKTE:" + lerpScore;
+		}
 
 		// FlxG.watch.addQuick('font', scoreText.font);
 
