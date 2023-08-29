@@ -28,8 +28,10 @@ class FreeplayState extends MusicBeatState
 	private static var lastDifficultyName:String = Difficulty.getDefault();
 
 	var scoreBG:FlxSprite;
+	var leText:FlxText;
 	var scoreText:FlxText;
 	var diffText:FlxText;
+	var size:Int = 16;
 	var lerpScore:Int = 0;
 	var lerpRating:Float = 0;
 	var intendedScore:Int = 0;
@@ -163,29 +165,18 @@ class FreeplayState extends MusicBeatState
 		add(textBG);
 
 		#if PRELOAD_ALL
-		#if android
         if(ClientPrefs.data.language == 'English')
         {
 		var leText:String = "Press X to listen to the Song / Press C to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy.";
-		var size:Int = 16;
 		}
 		else if(ClientPrefs.data.language == 'Português (BR)')
 		{
 		var leText:String = "Pressione X para ouvir a música / Pressione C para abrir o menu Gameplay Changers / Pressione Y para redefinir sua pontuação e precisão.";
-		var size:Int = 16;
 		}
 		else if(ClientPrefs.data.language == 'Deutsch')
         {
 		var leText:String = "Drücken Sie X, um das Lied anzuhören / Drücken Sie C, um das Gameplay-Changers-Menü zu öffnen / Drücken Sie Y, um Ihre Punktzahl und Genauigkeit zurückzusetzen.";
-		var size:Int = 16;
 		}
-		#else
-		var leText:String = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
-		var size:Int = 16;
-		#end
-		#else
-		var leText:String = "Press C to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy.";
-		var size:Int = 18;
 		#end
 		var text:FlxText = new FlxText(textBG.x, textBG.y + 4, FlxG.width, leText, size);
 		text.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, RIGHT);
