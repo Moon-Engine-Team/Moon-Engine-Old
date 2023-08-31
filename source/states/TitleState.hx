@@ -551,43 +551,24 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = 'In association \nwith';
 				// credTextShit.screenCenter();
 				case 6:
-					#if PSYCH_WATERMARKS
-					createCoolText(['Not associated', 'with'], -40);
-					#else
-					createCoolText(['In association', 'with'], -40);
-					#end
-				case 7:
 					addMoreText('newgrounds', -40);
 					ngSpr.visible = true;
 				// credTextShit.text += '\nNewgrounds';
 				case 8:
 					deleteCoolText();
-					ngSpr.visible = false;
-				// credTextShit.visible = false;
-
-				// credTextShit.text = 'Shoutouts Tom Fulp';
-				// credTextShit.screenCenter();
-				case 9:
-					createCoolText([curWacky[0]]);
-				// credTextShit.visible = true;
-				case 10:
-					addMoreText(curWacky[1]);
-				// credTextShit.text += '\nlmao';
-				case 11:
-					deleteCoolText();
 				// credTextShit.visible = false;
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
-				case 12:
+				case 9:
 					addMoreText('Friday');
 				// credTextShit.visible = true;
-				case 13:
+				case 10:
 					addMoreText('Night');
 				// credTextShit.text += '\nNight';
-				case 14:
+				case 11:
 					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
 
-				case 15:
+				case 12:
 					skipIntro();
 			}
 		}
