@@ -274,7 +274,7 @@ class NoteSplashDebugState extends MusicBeatState
 	{
 		texturePath = NoteSplash.defaultNoteSplash + NoteSplash.getSplashSkinPostfix();
 		splashes.forEachAlive(function(spr:FlxSprite) {
-			spr.frames = Paths.getSparrowAtlas(texturePath);
+			spr.frames = SUtil.getSparrowAtlas(texturePath) + Paths.getSparrowAtlas(texturePath);
 		});
 	
 		// Initialize config
@@ -308,7 +308,7 @@ class NoteSplashDebugState extends MusicBeatState
 		var path:String = pathSplit[pathSplit.length-1].trim();
 		savedText.text = 'Saved to: $path';
 		//sys.io.File.saveContent(path, strToSave);
-		//var path:String = SUtil.getPath() + 'modsList.txt';
+		//var path:String = SUtil.getPath() me + 'modsList.txt';
 		File.saveContent(SUtil.getPath() + path, strToSave);
 		#else
 		savedText.text = 'Can\'t save on this platform, too bad.';  //'
