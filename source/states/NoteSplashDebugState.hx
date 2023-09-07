@@ -285,7 +285,7 @@ class NoteSplashDebugState extends MusicBeatState
 		stepperMinFps.value = config.minFps;
 		stepperMaxFps.value = config.maxFps;
 		//
-
+		
 		reloadAnims();
 	}
 
