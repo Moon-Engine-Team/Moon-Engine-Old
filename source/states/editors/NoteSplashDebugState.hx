@@ -274,7 +274,7 @@ class NoteSplashDebugState extends MusicBeatState
 	{
 		texturePath = NoteSplash.defaultNoteSplash + NoteSplash.getSplashSkinPostfix();
 		splashes.forEachAlive(function(spr:FlxSprite) {
-			spr.frames = SUtil.getPath() + Paths.getSparrowAtlas(texturePath);
+			spr.frames = Paths.getSparrowAtlas(texturePath);
 		});
 	
 		// Initialize config
@@ -304,7 +304,7 @@ class NoteSplashDebugState extends MusicBeatState
 		for (offGroup in config.offsets)
 			strToSave += '\n' + offGroup[0] + ' ' + offGroup[1];
 
-		var pathSplit:Array<String> = (SUtil.getPath() + Paths.getPath('images/$texturePath.png', IMAGE, true).split('.png')[0] + '.txt').split(':');
+		var pathSplit:Array<String> = (Paths.getPath('images/$texturePath.png', IMAGE, true).split('.png')[0] + '.txt').split(':');
 		var path:String = pathSplit[pathSplit.length-1].trim();
 		savedText.text = 'Saved to: $path';
 		//sys.io.File.saveContent(path, strToSave);
