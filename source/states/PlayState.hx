@@ -3049,7 +3049,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	override function spawnNoteSplashOnNote(note:Note) {
+	public function spawnNoteSplashOnNote(note:Note) {
 		if(note != null)
          {
 			var strum:StrumNote = playerStrums.members[note.noteData];
@@ -3057,6 +3057,7 @@ class PlayState extends MusicBeatState
 				spawnNoteSplash(strum.x, strum.y, note.noteData, note);
 		}
 	}
+}
 
 	public function spawnNoteSplash(x:Float, y:Float, data:Int, ?note:Note = null) {
 		var splash:NoteSplash = grpNoteSplashes.recycle(NoteSplash);
