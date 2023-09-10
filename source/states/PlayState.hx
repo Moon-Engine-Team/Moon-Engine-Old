@@ -3041,7 +3041,7 @@ class PlayState extends MusicBeatState
 			var result:Dynamic = callOnLuas('goodNoteHit', [notes.members.indexOf(note), leData, leType, isSus]);
 			if(result != FunkinLua.Function_Stop && result != FunkinLua.Function_StopHScript && result != FunkinLua.Function_StopAll) callOnHScript('goodNoteHit', [note]);
 
-			if (!note.isSustainNote)
+			if(!note.isSustainNote)
 			{
 				notes.remove(note, true);
 				note.destroy();
@@ -3057,7 +3057,6 @@ class PlayState extends MusicBeatState
 				spawnNoteSplash(strum.x, strum.y, note.noteData, note);
 		}
 	}
-}
 
 	public function spawnNoteSplash(x:Float, y:Float, data:Int, ?note:Note = null) {
 		var splash:NoteSplash = grpNoteSplashes.recycle(NoteSplash);
