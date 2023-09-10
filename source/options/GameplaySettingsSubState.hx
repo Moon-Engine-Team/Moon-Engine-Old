@@ -7,8 +7,8 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		title = 'Gameplay Settings';
 		rpcTitle = 'Gameplay Settings Menu'; //for Discord Rich Presence
 
-       var option:Option = new Option('cpuControlled:',
-			'I actually don't remember but if you want',
+       var option:Option = new Option('cpuControlled',
+			'If checked, I actually don't remember but if you want',
 			'cpuControlled',
 			'bool');
 		addOption(option);
