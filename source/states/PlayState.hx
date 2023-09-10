@@ -3097,7 +3097,7 @@ class PlayState extends MusicBeatState
 		super.destroy();
 	}
 
-	public static function cancelMusicFadeTween() {
+	static function cancelMusicFadeTween() {
 		if(FlxG.sound.music.fadeTween != null) {
 			FlxG.sound.music.fadeTween.cancel();
 		}
@@ -3190,7 +3190,7 @@ class PlayState extends MusicBeatState
 	}
 
 	#if LUA_ALLOWED
-	public function startLuasNamed(luaFile:String)
+	function startLuasNamed(luaFile:String)
 	{
 		#if MODS_ALLOWED
 		var luaToLoad:String = Paths.modFolders(luaFile);
@@ -3214,7 +3214,7 @@ class PlayState extends MusicBeatState
 	#end
 	
 	#if HSCRIPT_ALLOWED
-	public function startHScriptsNamed(scriptFile:String)
+	function startHScriptsNamed(scriptFile:String)
 {
     #if MODS_ALLOWED
     var scriptToLoad:String = Paths.modFolders(scriptFile);
@@ -3235,7 +3235,7 @@ class PlayState extends MusicBeatState
     return false;
 }
 
-	public function initHScript(file:String)
+	function initHScript(file:String)
 	{
 		try
 		{
