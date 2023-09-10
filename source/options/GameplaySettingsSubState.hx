@@ -19,12 +19,6 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'middleScroll',
 			'bool');
 		addOption(option);
-		
-		var option:Option = new Option('cpuControlled',
-			'If checked, I actually don't remember but if you want',
-			'cpuControlled',
-			'bool');
-		addOption(option);
 
 		var option:Option = new Option('Opponent Notes',
 			'If unchecked, opponent notes get hidden.',
