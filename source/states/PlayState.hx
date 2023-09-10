@@ -3418,13 +3418,13 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	public var ratingName:String = '?';
-	public var ratingNamePTBR:String = '?';
-	public var ratingNameD:String = '?';
-	public var ratingPercent:Float;
-	public var ratingPercentPTBR:Float;
-	public var ratingPercentD:Float;
-	public var ratingFC:String;
+	var ratingName:String = '?';
+	var ratingNamePTBR:String = '?';
+	var ratingNameD:String = '?';
+	var ratingPercent:Float;
+	var ratingPercentPTBR:Float;
+	var ratingPercentD:Float;
+	var ratingFC:String;
 	function RecalculateRating(badHit:Bool = false) {
 		setOnScripts('score', songScore);
 		setOnScripts('misses', songMisses);
@@ -3571,7 +3571,7 @@ class PlayState extends MusicBeatState
 	#end
 
 	#if (!flash && sys)
-	public var runtimeShaders:Map<String, Array<String>> = new Map<String, Array<String>>();
+	var runtimeShaders:Map<String, Array<String>> = new Map<String, Array<String>>();
 	function createRuntimeShader(name:String):FlxRuntimeShader
 	{
 		if(!ClientPrefs.data.shaders) return new FlxRuntimeShader();
