@@ -3643,5 +3643,5 @@ class PlayState extends MusicBeatState
 		FlxG.log.warn('This platform doesn\'t support Runtime Shaders!', false, false, FlxColor.RED);
 		#end
 		return false;
-	}
 	#end
+}
