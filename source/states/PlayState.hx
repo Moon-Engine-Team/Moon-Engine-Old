@@ -2532,7 +2532,7 @@ class PlayState extends MusicBeatState
 		rating.x += ClientPrefs.data.comboOffset[0];
 		rating.y -= ClientPrefs.data.comboOffset[1];
 		rating.antialiasing = antialias;
-		
+		}
 
 		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(uiPrefix + 'combo' + uiSuffix));
 		comboSpr.cameras = [camHUD];
@@ -2546,7 +2546,6 @@ class PlayState extends MusicBeatState
 		comboSpr.antialiasing = antialias;
 		comboSpr.y += 60;
 		comboSpr.velocity.x += FlxG.random.int(1, 10) * playbackRate;
-		}
 
 		insert(members.indexOf(strumLineNotes), rating);
 		
@@ -3048,15 +3047,13 @@ class PlayState extends MusicBeatState
 
 			if (!note.isSustainNote)
 			{
-				
 				notes.remove(note, true);
 				note.destroy();
 			}
 		}
 	}
 
-	public function spawnNoteSplashOnNote(note:Note)
-        {
+	public function spawnNoteSplashOnNote(note:Note) {
 		if(note != null)
          {
 			var strum:StrumNote = playerStrums.members[note.noteData];
