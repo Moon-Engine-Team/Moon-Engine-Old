@@ -3043,7 +3043,6 @@ class PlayState extends MusicBeatState
 
 			if (!note.isSustainNote)
 			{
-				
 				notes.remove(note, true);
 				note.destroy();
 			}
@@ -3051,7 +3050,6 @@ class PlayState extends MusicBeatState
 	}
 
 	public function spawnNoteSplashOnNote(note:Note)
-        {
 		if(note != null)
          {
 			var strum:StrumNote = playerStrums.members[note.noteData];
