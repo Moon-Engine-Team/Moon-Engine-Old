@@ -2517,7 +2517,9 @@ class PlayState extends MusicBeatState
 			if (PlayState.isPixelStage) uiSuffix = '-pixel';
 			antialias = !isPixelStage;
 		}
-
+		
+           if (!cpuControlled)
+       {
 		rating.loadGraphic(Paths.image(uiPrefix + daRating.image + uiSuffix));
 		rating.cameras = [camHUD];
 		rating.screenCenter();
@@ -2530,6 +2532,7 @@ class PlayState extends MusicBeatState
 		rating.x += ClientPrefs.data.comboOffset[0];
 		rating.y -= ClientPrefs.data.comboOffset[1];
 		rating.antialiasing = antialias;
+		
 
 		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(uiPrefix + 'combo' + uiSuffix));
 		comboSpr.cameras = [camHUD];
@@ -2543,6 +2546,7 @@ class PlayState extends MusicBeatState
 		comboSpr.antialiasing = antialias;
 		comboSpr.y += 60;
 		comboSpr.velocity.x += FlxG.random.int(1, 10) * playbackRate;
+		}
 
 		insert(members.indexOf(strumLineNotes), rating);
 		
@@ -2950,7 +2954,7 @@ class PlayState extends MusicBeatState
 		{
 			if(cpuControlled && (note.ignoreNote || note.hitCausesMiss)) return;
 
-			note.wasGoodHit = true;
+			
 			if (ClientPrefs.data.hitsoundVolume > 0 && !note.hitsoundDisabled)
 				FlxG.sound.play(Paths.sound(note.hitsound), ClientPrefs.data.hitsoundVolume);
 
@@ -2970,55 +2974,64 @@ class PlayState extends MusicBeatState
 					}
 				}
 
+                     note.wasGoodHit = true;
+             
 				if (!note.isSustainNote)
 				{
-					
 					notes.remove(note, true);
 					note.destroy();
 				}
 				return;
 			}
 
-			if (!note.isSustainNote)
-			{
-				combo++;
-				if(combo > 9999) combo = 9999;
-				popUpScore(note);
-			}
-			health += note.hitHealth * healthGain;
 
 			if(!note.noAnimation) {
-				var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length-1, note.noteData)))];
+				var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData)))];
 
-				var char:Character = boyfriend;
-				var animCheck:String = 'hey';
 				if(note.gfNote)
-				{
-					char = gf;
-					animCheck = 'cheer';
-				}
-				
-				if(char != null)
 				{
 					char.playAnim(animToPlay + note.animSuffix, true);
 					char.holdTimer = 0;
-					
-					if(note.noteType == 'Hey!') {
-						if(char.animOffsets.exists(animCheck)) {
-							char.playAnim(animCheck, true);
-							char.specialAnim = true;
-							char.heyTimer = 0.6;
+					}
+					else
+                      {
+                      boyfriend.playAnim(animToPlay + note.animSuffix, true);
+					boyfriend.holdTimer = 0;
+				}
+
+				if(note.noteType == 'Hey!') {
+					if(boyfriend.animOffsets.exists('hey')) {
+						boyfriend.playAnim('hey', true);
+						boyfriend.specialAnim = true;
+						boyfriend.heyTimer = 0.6;
+					}
+
+					if(gf != null && gf.animOffsets.exists('cheer')) {
+						gf.playAnim('cheer', true);
+						gf.specialAnim = true;
+						gf.heyTimer = 0.6;
 						}
 					}
 				}
 			}
 
-			if(!cpuControlled)
+			if(!note.isSustainNote && cpuControlled)
 			{
-				var spr = playerStrums.members[note.noteData];
-				if(spr != null) spr.playAnim('confirm', true);
+			   songScore += 500 * Std.int(healthGain);
+				if(combo > 9999) combo = 9999;
+				popUpScore(note);
 			}
-			else strumPlayAnim(false, Std.int(Math.abs(note.noteData)), Conductor.stepCrochet * 1.25 / 1000 / playbackRate);
+			health += note.hitHealth * healthGain;
+			if(cpuControlled) {
+				var time:Float = 0.15 / playbackRate;
+				if(note.isSustainNote && !note.animation.curAnim.name.endsWith('end')) {
+					time += 0.15;
+				}
+				strumPlayAnim(false, Std.int(Math.abs(note.noteData)), Conductor.stepCrochet * 1.25 / 1000 / playbackRate);
+			} else {
+				var spr = playerStrums.members[note.noteData];
+			}
+			note.wasGoodHit = true;
 			vocals.volume = 1;
 
 			var isSus:Bool = note.isSustainNote; //GET OUT OF MY HEAD, GET OUT OF MY HEAD, GET OUT OF MY HEAD
