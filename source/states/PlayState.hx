@@ -2625,6 +2625,7 @@ class PlayState extends MusicBeatState
 				startDelay: Conductor.crochet * 0.002 / playbackRate
 			});
 		}
+	}
 
 			daLoop++;
 			if(numScore.x > xThing) xThing = numScore.x;
