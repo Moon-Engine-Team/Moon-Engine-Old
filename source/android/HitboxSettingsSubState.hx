@@ -53,10 +53,9 @@ class HitboxSettingsSubState extends BaseOptionsMenu
 		  addOption(option);  
 
 		var option:Option = new Option('Hitbox Mode:',
-			"Choose your Hitbox Style!  -mariomaster",
+			"Choose your Hitbox Style!",
 			'hitboxmode',
 			'string',
-			'New',
 			['New', 'Classic']);
 		  addOption(option);
 		  
