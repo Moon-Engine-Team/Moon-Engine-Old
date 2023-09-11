@@ -91,7 +91,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			"What is your language?",
 			'language',
 			'string',
-			['English', 'Português (BR)', 'Deutsch']);
+			['English', 'Español', 'Português (BR)', 'Deutsch']);
 		addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
