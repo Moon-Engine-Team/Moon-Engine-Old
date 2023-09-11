@@ -56,11 +56,11 @@ class AndroidControlsMenu extends MusicBeatState
 		vpad.alpha = 0;
 		add(vpad);
 		
-        /*
-		hbox = new FlxHitbox(0.75, ClientPrefs.data.antialiasing);
-		hbox.visible = false;
-		add(hbox);
-		*\
+        
+		//hbox = new FlxHitbox(0.75, ClientPrefs.data.antialiasing);
+		//hbox.visible = false;
+		//add(hbox);
+		
 		
 		newhbox = new FlxNewHitbox();
 		newhbox.visible = false;
