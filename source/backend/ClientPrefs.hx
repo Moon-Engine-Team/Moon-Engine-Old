@@ -42,7 +42,7 @@ class SaveVariables {
 	public var menuStyle:String = 'Moon Engine';
 
   //Mobile Stuff
-	public var hitboxmode:String = 'Classic';
+	public var hitboxmode:String = 'New';
 	public var hitboxExtend:Bool = false;
 	public var hitboxLocation:String = 'Bottom';
 	public var hitboxalpha:Float = 0.2; //someone request this lol
