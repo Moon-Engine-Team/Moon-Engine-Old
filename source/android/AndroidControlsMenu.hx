@@ -18,7 +18,7 @@ using StringTools;
 class AndroidControlsMenu extends MusicBeatState
 {
 	var vpad:FlxVirtualPad;
-	var hbox:FlxHitbox;
+	//var hbox:FlxHitbox;
 	var newhbox:FlxNewHitbox;
 	var upPozition:FlxText;
 	var downPozition:FlxText;

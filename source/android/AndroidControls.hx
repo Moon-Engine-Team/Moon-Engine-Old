@@ -7,7 +7,6 @@ import flixel.math.FlxPoint;
 
 import android.FlxVirtualPad;
 import android.FlxHitbox;
-import android.FlxNewHitbox;
 
 class Config {
 	var save:FlxSave;
@@ -86,12 +85,9 @@ class AndroidControls extends FlxSpriteGroup {
 			case DUO:
 				initControler(3);
 			case HITBOX:
-		    if(ClientPrefs.data.hitboxmode != 'New')
-            {
-			initControler(4);
-		    }
-           else
-            {
+		    if(ClientPrefs.data.hitboxmode != 'New'){
+				initControler(4);
+		    }else{
 		    initControler(5);
 		    }
 			case KEYBOARD:// nothing
