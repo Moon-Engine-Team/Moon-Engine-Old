@@ -2513,6 +2513,8 @@ class PlayState extends MusicBeatState
 			if (PlayState.isPixelStage) uiSuffix = '-pixel';
 			antialias = !isPixelStage;
 		}
+		
+		if (!cpuControlled) {
 
 		rating.loadGraphic(Paths.image(uiPrefix + daRating.image + uiSuffix));
 		rating.cameras = [camHUD];
@@ -2622,6 +2624,7 @@ class PlayState extends MusicBeatState
 				},
 				startDelay: Conductor.crochet * 0.002 / playbackRate
 			});
+		}
 
 			daLoop++;
 			if(numScore.x > xThing) xThing = numScore.x;
@@ -3008,7 +3011,7 @@ class PlayState extends MusicBeatState
 				}
 
 
-			if(!note.isSustainNote && !cpuControlled)
+			if(!note.isSustainNote && cpuControlled)
            {
 			songScore += 500 * Std.int(healthGain);
 				if(combo > 9999) combo = 9999;
