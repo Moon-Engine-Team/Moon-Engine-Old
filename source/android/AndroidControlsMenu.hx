@@ -56,10 +56,10 @@ class AndroidControlsMenu extends MusicBeatState
 		vpad.alpha = 0;
 		add(vpad);
         
-		hbox = new FlxHitbox(0.75, false);
+		hbox = new FlxHitbox(0.75, ClientPrefs.data.antialiasing);
 		hbox.visible = false;
 		add(hbox);
-
+		
 		newhbox = new FlxNewHitbox();
 		newhbox.visible = false;
 		add(newhbox);
@@ -185,7 +185,7 @@ class AndroidControlsMenu extends MusicBeatState
 
 		if (daChoice != "Hitbox")
 		{
-			//hbox.visible = false;
+			hbox.visible = false;
 			newhbox.visible = false;
 		}
 		else
