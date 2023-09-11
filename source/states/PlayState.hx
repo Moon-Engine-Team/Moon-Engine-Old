@@ -3008,19 +3008,23 @@ class PlayState extends MusicBeatState
 				}
 
 
-			if(!note.isSustainNote && !cpuControlled) {
+			if(!note.isSustainNote && !cpuControlled)
+           {
 			songScore += 500 * Std.int(healthGain);
 				if(combo > 9999) combo = 9999;
 				popUpScore(note);
 			}
 			health += note.hitHealth * healthGain;
+			
 			if(cpuControlled) {
 				var time:Float = 0.15 / playbackRate;
 				if(note.isSustainNote && !note.animation.curAnim.name.endsWith('end')) {
 					time += 0.15;
 				}
 				strumPlayAnim(false, Std.int(Math.abs(note.noteData)), Conductor.stepCrochet * 1.25 / 1000 / playbackRate);
-			} else {
+			}
+             else
+               {
 				var spr = playerStrums.members[note.noteData];
 				if(spr != null)
 				{
