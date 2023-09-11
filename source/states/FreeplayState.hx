@@ -251,6 +251,11 @@ class FreeplayState extends MusicBeatState
 		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
 		positionHighscore();
 		}
+		else if(ClientPrefs.data.language == 'Español')
+        {
+		scoreText.text = 'MEJOR MARCA PERSONAL: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+		positionHighscore();
+		}
 		else if(ClientPrefs.data.language == 'Português (BR)')
         {
 		scoreText.text = 'MELHOR PONTUAÇÃO: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';

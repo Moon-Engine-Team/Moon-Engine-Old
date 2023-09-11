@@ -1157,12 +1157,14 @@ class PlayState extends MusicBeatState
 	public function updateScore(miss:Bool = false)
 	{
 		var str:String = ratingName;
+		var strESP:String = ratingNameESP;
 		var strPTBR:String = ratingNamePTBR;
 		var strD:String = ratingNameD;
 		if(totalPlayed != 0)
 		{
 			var percent:Float = CoolUtil.floorDecimal(ratingPercent * 100, 2);
 			str += ' ($percent%) - $ratingFC';
+			strESP += ' ($percent%) - $ratingFC';
 			strPTBR += ' ($percent%) - $ratingFC';
 			strD += ' ($percent%) - $ratingFC';
 		}
@@ -1172,6 +1174,15 @@ class PlayState extends MusicBeatState
 		scoreTxt.text = 'Score: ' + songScore
 		+ ' | Misses: ' + songMisses
 		+ ' | Rating: ' + str;
+		
+		}
+		
+		else if(ClientPrefs.data.language == 'Español')
+        {
+        
+		scoreTxt.text = 'Puntaje: ' + songScore
+		+ ' | Errores: ' + songMisses
+		+ ' | Clasificación: ' + strESP;
 		
 		}
 		
@@ -3397,9 +3408,11 @@ class PlayState extends MusicBeatState
 	}
 
 	public var ratingName:String = '?';
+	public var ratingNameESP:String = '?';
 	public var ratingNamePTBR:String = '?';
 	public var ratingNameD:String = '?';
 	public var ratingPercent:Float;
+	public var ratingPercentESP:Float;
 	public var ratingPercentPTBR:Float;
 	public var ratingPercentD:Float;
 	public var ratingFC:String;
@@ -3413,12 +3426,14 @@ class PlayState extends MusicBeatState
 		if(ret != FunkinLua.Function_Stop)
 		{
 			ratingName = '?';
+			ratingNameESP = '?';
 			ratingNamePTBR = '?';
 			ratingNameD = '?';
 			if(totalPlayed != 0) //Prevent divide by 0
 			{
 				// Rating Percent
 				ratingPercent = Math.min(1, Math.max(0, totalNotesHit / totalPlayed));
+				ratingPercentESP = Math.min(1, Math.max(0, totalNotesHit / totalPlayed));
 				ratingPercentPTBR = Math.min(1, Math.max(0, totalNotesHit / totalPlayed));
 				ratingPercentD = Math.min(1, Math.max(0, totalNotesHit / totalPlayed));
 				//trace((totalNotesHit / totalPlayed) + ', Total: ' + totalPlayed + ', notes hit: ' + totalNotesHit);
@@ -3430,6 +3445,15 @@ class PlayState extends MusicBeatState
 						if(ratingPercent < ratingStuff[i][1])
 						{
 							ratingName = ratingStuff[i][0];
+							break;
+						}
+				// Rating Name Español
+				ratingNameESP = ratingStuffESP[ratingStuffESP.length-1][0]; //Uses last string
+				if(ratingPercentESP < 1)
+					for (i in 0...ratingStuffESP.length-1)
+						if(ratingPercentESP < ratingStuffESP[i][1])
+						{
+							ratingNameESP = ratingStuffESP[i][0];
 							break;
 						}
 				// Rating Name Português (BR)
@@ -3458,6 +3482,12 @@ class PlayState extends MusicBeatState
        {
 		setOnScripts('rating', ratingPercent);
 		setOnScripts('ratingName', ratingName);
+		setOnScripts('ratingFC', ratingFC);
+		}
+		else if(ClientPrefs.data.language == 'Español')
+       {
+		setOnScripts('rating', ratingPercentESP);
+		setOnScripts('ratingName', ratingNameESP);
 		setOnScripts('ratingFC', ratingFC);
 		}
 		else if(ClientPrefs.data.language == 'Português (BR)')

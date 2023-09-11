@@ -198,11 +198,15 @@ class StoryMenuState extends MusicBeatState
         {
 		scoreText.text = "WEEK SCORE:" + lerpScore;
 		}
+		else if(ClientPrefs.data.language == 'Español')
+        {
+		scoreText.text = "PUNTUACIÓN DE LA SEMANA:" + lerpScore;
+		}
 		else if(ClientPrefs.data.language == 'Português (BR)')
         {
 		scoreText.text = "PONTUAÇÃO DA SEMANA:" + lerpScore;
 		}
-		else if(ClientPrefs.data.language == 'English')
+		else if(ClientPrefs.data.language == 'Deutsch')
         {
 		scoreText.text = "WOCHENPUNKTE:" + lerpScore;
 		}
