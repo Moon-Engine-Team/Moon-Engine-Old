@@ -10,7 +10,6 @@ import states.TitleState;
 class SaveVariables {
 	public var downScroll:Bool = false;
 	public var middleScroll:Bool = false;
-	public var cpuControlled:Bool = false;
 	public var opponentStrums:Bool = true;
 	public var showFPS:Bool = true;
 	public var flashing:Bool = true;
@@ -43,7 +42,7 @@ class SaveVariables {
 	public var menuStyle:String = 'Moon Engine';
 
   //Mobile Stuff
-	public var hitboxmode:String = 'New';
+	public var hitboxmode:String = 'Classic';
 	public var hitboxExtend:Bool = false;
 	public var hitboxLocation:String = 'Bottom';
 	public var hitboxalpha:Float = 0.2; //someone request this lol
