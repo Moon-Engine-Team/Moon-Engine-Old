@@ -18,7 +18,8 @@ class OptionsState extends MusicBeatState
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
-		if(ClientPrefs.data.language == 'English') {
+		if(ClientPrefs.data.language == 'English')
+             {
 			case 'Note Colors':
 				openSubState(new options.NotesSubState());
 			  #if android
@@ -47,7 +48,8 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				}
-			if(ClientPrefs.data.language == 'Español') {
+			if(ClientPrefs.data.language == 'Español') 
+               {
 			case 'Notas Coloridas':
 				openSubState(new options.NotesSubState());
 			  #if android
@@ -76,7 +78,8 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				}
-			if(ClientPrefs.data.language == 'Português (BR)') {
+			if(ClientPrefs.data.language == 'Português (BR)')
+               {
 			case 'Notas Coloridas':
 				openSubState(new options.NotesSubState());
 			  #if android
@@ -105,7 +108,8 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				}
-				if(ClientPrefs.data.language == 'Deutsch') {
+				if(ClientPrefs.data.language == 'Deutsch')
+               {
 			case 'Bunte Notizen':
 				openSubState(new options.NotesSubState());
 			  #if android
