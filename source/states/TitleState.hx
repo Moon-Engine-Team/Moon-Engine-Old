@@ -385,7 +385,7 @@ class TitleState extends MusicBeatState
 			{
 				titleText.color = FlxColor.WHITE;
 				titleText.alpha = 1;
-				
+
 				if(titleText != null) titleText.animation.play('press');
 
 				FlxG.camera.flash(ClientPrefs.data.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
@@ -555,6 +555,7 @@ class TitleState extends MusicBeatState
 					ngSpr.visible = true;
 				// credTextShit.text += '\nNewgrounds';
 				case 8:
+				     ngSpr.visible = false;
 					deleteCoolText();
 				// credTextShit.visible = false;
 				// credTextShit.text = "Friday";
