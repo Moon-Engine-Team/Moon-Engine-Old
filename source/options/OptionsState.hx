@@ -9,7 +9,7 @@ class OptionsState extends MusicBeatState
 	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay'];
 	var optionsESP:Array<String> = ['Notas Coloridas', 'Controles', 'Ajustar el retraso y mezclar', 'Gráficos', 'Imágenes y UI', 'Como se Juega'];
 	var optionsPTBR:Array<String> = ['Notas Coloridas', 'Controles', 'Ajustar atraso e combinação', 'Gráficos', 'Visuais e IU', 'Jogabilidade'];
-	var optionsD:Array<String> = ['Bunte Notizen', 'Kontrollen', 'Passen Sie Verzögerung und Mischung an, 'Grafik', 'Visuals und Benutzeroberfläche', 'Spielweise'];
+	var optionsD:Array<String> = ['Bunte Notizen', 'Kontrollen', 'Passen Sie Verzögerung und Mischung an', 'Grafik', 'Visuals und Benutzeroberfläche', 'Spielweise'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
