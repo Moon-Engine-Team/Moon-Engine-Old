@@ -12,26 +12,8 @@ class VisualsUISubState extends BaseOptionsMenu
 	var noteY:Float = 90;
 	public function new()
 	{
-	   if(ClientPrefs.data.language == 'English')
-        {
 		title = 'Visuals and UI';
 		rpcTitle = 'Visuals & UI Settings Menu'; //for Discord Rich Presence
-        }
-       else if(ClientPrefs.data.language == 'Español')
-        {
-		title = 'Imágenes y UI';
-		rpcTitle = 'Menú de configuración visual y de interfaz.'; //for Discord Rich Presence
-        }
-        else if(ClientPrefs.data.language == 'Português (BR)')
-        {
-		title = 'Visuais e IU';
-		rpcTitle = 'Menu de configurações visuais e de interface'; //for Discord Rich Presence
-        }
-        else if(ClientPrefs.data.language == 'Deutsch')
-        {
-		title = 'Visuals und Benutzeroberfläche';
-		rpcTitle = 'Menü „Grafik- und UI-Einstellungen“.'; //for Discord Rich Presence
-        }
 
 		// for note skins
 		notes = new FlxTypedGroup<StrumNote>();
@@ -57,8 +39,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			if(!noteSkins.contains(ClientPrefs.data.noteSkin))
 				ClientPrefs.data.noteSkin = ClientPrefs.defaultData.noteSkin; //Reset to default if saved noteskin couldnt be found
 
-   if(ClientPrefs.data.language == 'English')
-        {
 			noteSkins.insert(0, ClientPrefs.defaultData.noteSkin); //Default skin always comes first
 			var option:Option = new Option('Note Skins:',
 				"Select your prefered Note skin.",
@@ -68,43 +48,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			addOption(option);
 			option.onChange = onChangeNoteSkin;
 			noteOptionID = optionsArray.length - 1;
-			}
-		else if(ClientPrefs.data.language == 'Español')
-        {
-			noteSkins.insert(0, ClientPrefs.defaultData.noteSkin); //Default skin always comes first
-			var option:Option = new Option('Máscaras de notas:',
-				"Seleccione su máscara de Nota preferida.",
-				'noteSkin',
-				'string',
-				noteSkins);
-			addOption(option);
-			option.onChange = onChangeNoteSkin;
-			noteOptionID = optionsArray.length - 1;
-			}
-		else if(ClientPrefs.data.language == 'Português (BR)')
-        {
-			noteSkins.insert(0, ClientPrefs.defaultData.noteSkin); //Default skin always comes first
-			var option:Option = new Option('Skins das notas:',
-				"Selecione sua skin preferida de notas.",
-				'noteSkin',
-				'string',
-				noteSkins);
-			addOption(option);
-			option.onChange = onChangeNoteSkin;
-			noteOptionID = optionsArray.length - 1;
-			}
-		else if(ClientPrefs.data.language == 'Deutsch')
-        {
-			noteSkins.insert(0, ClientPrefs.defaultData.noteSkin); //Default skin always comes first
-			var option:Option = new Option('Hinweis-Skins:',
-				"Wählen Sie Ihren bevorzugten Notiz-Skin aus.",
-				'noteSkin',
-				'string',
-				noteSkins);
-			addOption(option);
-			option.onChange = onChangeNoteSkin;
-			noteOptionID = optionsArray.length - 1;
-			}
 		}
 
 		var noteSplashes:Array<String> = [];

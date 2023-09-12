@@ -7,9 +7,6 @@ import flixel.addons.transition.FlxTransitionableState;
 class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay'];
-	var optionsESP:Array<String> = ['Notas Coloridas', 'Controles', 'Ajustar el retraso y mezclar', 'Gráficos', 'Imágenes y UI', 'Como se Juega'];
-	var optionsPTBR:Array<String> = ['Notas Coloridas', 'Controles', 'Ajustar atraso e combinação', 'Gráficos', 'Visuais e IU', 'Jogabilidade'];
-	var optionsD:Array<String> = ['Bunte Notizen', 'Kontrollen', 'Passen Sie Verzögerung und Mischung an', 'Grafik', 'Visuals und Benutzeroberfläche', 'Spielweise'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -17,8 +14,6 @@ class OptionsState extends MusicBeatState
 	var tipText:FlxText;
 
 	function openSelectedSubstate(label:String) {
-	if(ClientPrefs.data.language == 'English')
-             {
 		switch(label) {
 			case 'Note Colors':
 				openSubState(new options.NotesSubState());
@@ -47,103 +42,6 @@ class OptionsState extends MusicBeatState
 			  #if android
 				removeVirtualPad();
 				#end
-				 }
-				}
-			else if(ClientPrefs.data.language == 'Español') 
-               {
-               switch(label) {
-			case 'Notas Coloridas':
-				openSubState(new options.NotesSubState());
-			  #if android
-				removeVirtualPad();
-				#end
-			case 'Controles':
-				openSubState(new options.ControlsSubState());
-			  #if android
-				removeVirtualPad();
-				#end
-			case 'Gráficos':
-				openSubState(new options.GraphicsSettingsSubState());
-			  #if android
-				removeVirtualPad();
-				#end
-			case 'Imágenes y UI':
-				openSubState(new options.VisualsUISubState());
-		    #if android
-				removeVirtualPad();
-				#end
-			case 'Como se Juega':
-				openSubState(new options.GameplaySettingsSubState());
-			case 'Ajustar el retraso y mezclar':
-				MusicBeatState.switchState(new options.NoteOffsetState());
-			  #if android
-				removeVirtualPad();
-				#end
-				}
-				}
-			else if(ClientPrefs.data.language == 'Português (BR)')
-               {
-               switch(label) {
-			case 'Notas Coloridas':
-				openSubState(new options.NotesSubState());
-			  #if android
-				removeVirtualPad();
-				#end
-			case 'Controles':
-				openSubState(new options.ControlsSubState());
-			  #if android
-				removeVirtualPad();
-				#end
-			case 'Gráficos':
-				openSubState(new options.GraphicsSettingsSubState());
-			  #if android
-				removeVirtualPad();
-				#end
-			case 'Visuais e IU':
-				openSubState(new options.VisualsUISubState());
-		    #if android
-				removeVirtualPad();
-				#end
-			case 'Jogabilidade':
-				openSubState(new options.GameplaySettingsSubState());
-			case 'Ajustar atraso e combinação':
-				MusicBeatState.switchState(new options.NoteOffsetState());
-			  #if android
-				removeVirtualPad();
-				#end
-				}
-				}
-				else if(ClientPrefs.data.language == 'Deutsch')
-               {
-               switch(label) {
-			case 'Bunte Notizen':
-				openSubState(new options.NotesSubState());
-			  #if android
-				removeVirtualPad();
-				#end
-			case 'Kontrollen':
-				openSubState(new options.ControlsSubState());
-			  #if android
-				removeVirtualPad();
-				#end
-			case 'Grafik':
-				openSubState(new options.GraphicsSettingsSubState());
-			  #if android
-				removeVirtualPad();
-				#end
-			case 'Visuals und Benutzeroberfläche':
-				openSubState(new options.VisualsUISubState());
-		    #if android
-				removeVirtualPad();
-				#end
-			case 'Spielweise':
-				openSubState(new options.GameplaySettingsSubState());
-			case 'Passen Sie Verzögerung und Mischung an':
-				MusicBeatState.switchState(new options.NoteOffsetState());
-			  #if android
-				removeVirtualPad();
-				#end
-				}
 		}
 	}
 
