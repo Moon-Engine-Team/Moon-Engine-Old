@@ -47,6 +47,7 @@ class OptionsState extends MusicBeatState
 			  #if android
 				removeVirtualPad();
 				#end
+				 }
 				}
 			else if(ClientPrefs.data.language == 'Español') 
                {
