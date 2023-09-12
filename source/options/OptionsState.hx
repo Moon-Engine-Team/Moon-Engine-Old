@@ -80,6 +80,7 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				}
+				}
 			else if(ClientPrefs.data.language == 'Português (BR)')
                {
                switch(label) {
@@ -110,6 +111,7 @@ class OptionsState extends MusicBeatState
 			  #if android
 				removeVirtualPad();
 				#end
+				}
 				}
 				else if(ClientPrefs.data.language == 'Deutsch')
                {
