@@ -48,7 +48,7 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				}
-			if(ClientPrefs.data.language == 'Español') 
+			else if(ClientPrefs.data.language == 'Español') 
                {
 			case 'Notas Coloridas':
 				openSubState(new options.NotesSubState());
@@ -78,7 +78,7 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				}
-			if(ClientPrefs.data.language == 'Português (BR)')
+			else if(ClientPrefs.data.language == 'Português (BR)')
                {
 			case 'Notas Coloridas':
 				openSubState(new options.NotesSubState());
@@ -108,7 +108,7 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				}
-				if(ClientPrefs.data.language == 'Deutsch')
+				else if(ClientPrefs.data.language == 'Deutsch')
                {
 			case 'Bunte Notizen':
 				openSubState(new options.NotesSubState());
