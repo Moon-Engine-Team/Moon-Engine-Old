@@ -26,7 +26,8 @@ jobs:
       - name: Install Libraries
         run: |
           haxelib setup ~/haxelib
-          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp.git
+          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp.git 
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib install hmm --quiet
           haxelib run hmm install > nul
         env:
