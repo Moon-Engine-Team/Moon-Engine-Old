@@ -17,9 +17,9 @@ class OptionsState extends MusicBeatState
 	var tipText:FlxText;
 
 	function openSelectedSubstate(label:String) {
-		switch(label) {
-		if(ClientPrefs.data.language == 'English')
+	if(ClientPrefs.data.language == 'English')
              {
+		switch(label) {
 			case 'Note Colors':
 				openSubState(new options.NotesSubState());
 			  #if android
@@ -50,6 +50,7 @@ class OptionsState extends MusicBeatState
 				}
 			else if(ClientPrefs.data.language == 'Español') 
                {
+               switch(label) {
 			case 'Notas Coloridas':
 				openSubState(new options.NotesSubState());
 			  #if android
@@ -80,6 +81,7 @@ class OptionsState extends MusicBeatState
 				}
 			else if(ClientPrefs.data.language == 'Português (BR)')
                {
+               switch(label) {
 			case 'Notas Coloridas':
 				openSubState(new options.NotesSubState());
 			  #if android
@@ -110,6 +112,7 @@ class OptionsState extends MusicBeatState
 				}
 				else if(ClientPrefs.data.language == 'Deutsch')
                {
+               switch(label) {
 			case 'Bunte Notizen':
 				openSubState(new options.NotesSubState());
 			  #if android
@@ -138,7 +141,6 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				}
-			}
 		}
 	}
 
