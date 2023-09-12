@@ -138,6 +138,7 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				}
+			}
 		}
 	}
 
