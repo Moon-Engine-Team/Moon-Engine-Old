@@ -71,7 +71,6 @@ class OptionsState extends MusicBeatState
 		
 		velocityBackground = new FlxBackdrop(FlxGridOverlay.createGrid(30, 30, 60, 60, true, 0x3B161932, 0x0), XY);
 		velocityBackground.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90);
-		velocityBackground.visible = ClientPrefs.velocityBackground;
 		velocityBackground.alpha = 0;
 		FlxTween.tween(velocityBackground, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
 		add(velocityBackground);
