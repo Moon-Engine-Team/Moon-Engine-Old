@@ -1,6 +1,8 @@
 package options;
 
 import objects.Character;
+import flixel.addons.display.FlxGridOverlay;
+import flixel.addons.display.FlxBackdrop;
 
 class GraphicsSettingsSubState extends BaseOptionsMenu
 {
@@ -17,6 +19,12 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		boyfriend.dance();
 		boyfriend.animation.finishCallback = function (name:String) boyfriend.dance();
 		boyfriend.visible = false;
+
+		var grid:FlxBackdrop = new FlxBackdrop(FlxGridOverlay.createGrid(80, 80, 160, 160, true, 0x33FFFFFF, 0x0));
+		grid.velocity.set(40, 40);
+		grid.alpha = 0;
+		FlxTween.tween(grid, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
+		add(grid);
 
 		//I'd suggest using "Low Quality" as an example for making your own option since it is the simplest here
 		var option:Option = new Option('Low Quality', //Name
