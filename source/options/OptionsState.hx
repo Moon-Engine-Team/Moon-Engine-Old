@@ -5,6 +5,8 @@ import backend.StageData;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import flixel.addons.display.FlxBackdrop;
+import flixel.addons.display.FlxGridOverlay;
 
 class OptionsState extends MusicBeatState
 {
