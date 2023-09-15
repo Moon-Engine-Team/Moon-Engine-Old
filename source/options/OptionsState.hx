@@ -3,6 +3,8 @@ package options;
 import states.MainMenuState;
 import backend.StageData;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 
 class OptionsState extends MusicBeatState
 {
@@ -10,6 +12,7 @@ class OptionsState extends MusicBeatState
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
+	var velocityBackground:FlxBackdrop; // SB Engine I actually stole. What are you going to do now?
 	public static var onPlayState:Bool = false;
 	var tipText:FlxText;
 
@@ -63,6 +66,13 @@ class OptionsState extends MusicBeatState
 
 		bg.screenCenter();
 		add(bg);
+		
+		velocityBackground = new FlxBackdrop(FlxGridOverlay.createGrid(30, 30, 60, 60, true, 0x3B161932, 0x0), XY);
+		velocityBackground.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90);
+		velocityBackground.visible = ClientPrefs.velocityBackground;
+		velocityBackground.alpha = 0;
+		FlxTween.tween(velocityBackground, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
+		add(velocityBackground);
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
