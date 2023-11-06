@@ -15,7 +15,7 @@ import haxe.CallStack;
 import haxe.io.Path;
 import sys.FileSystem;
 import sys.io.File;
-#if !macro import flash.system.System; #end
+import flash.system.System;
 
 
 /**
