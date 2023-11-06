@@ -11,7 +11,7 @@ import sys.io.File;
 #end
 
 #if (HSCRIPT_ALLOWED && SScript >= "3.0.0")
-import SScript;
+import tea.SScript;
 class HScript extends SScript
 {
 	public var parentLua:FunkinLua;
@@ -198,7 +198,7 @@ class HScript extends SScript
 		#end
 	}
 
-	public function executeCode(?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null):SCall
+	public function executeCode(?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null)
 	{
 		if (funcToRun == null) return null;
 
@@ -224,7 +224,7 @@ class HScript extends SScript
 		return callValue;
 	}
 
-	public function executeFunction(funcToRun:String = null, funcArgs:Array<Dynamic>):SCall
+	public function executeFunction(funcToRun:String = null, funcArgs:Array<Dynamic>)
 	{
 		if (funcToRun == null)
 			return null;
@@ -236,7 +236,7 @@ class HScript extends SScript
 	{
 		#if LUA_ALLOWED
 		funk.addLocalCallback("runHaxeCode", function(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null):Dynamic {
-			var retVal:SCall = null;
+			var retVal = null;
 			#if (SScript >= "3.0.0")
 			initHaxeModule(funk);
 			funk.hscript.doString(codeToRun);
