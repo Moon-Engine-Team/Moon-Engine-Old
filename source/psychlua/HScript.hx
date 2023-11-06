@@ -10,7 +10,7 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 
-#if HSCRIPT_ALLOWED
+#if (HSCRIPT_ALLOWED && SScript >= "3.0.0")
 import tea.SScript;
 class HScript extends SScript
 {
@@ -18,7 +18,7 @@ class HScript extends SScript
 	
 	public static function initHaxeModule(parent:FunkinLua)
 	{
-		#if SScript
+		#if (SScript >= "3.0.0")
 		if(parent.hscript == null)
 		{
 			trace('initializing haxe interp for: ${parent.scriptName}');
@@ -29,7 +29,7 @@ class HScript extends SScript
 
 	public static function initHaxeModuleCode(parent:FunkinLua, code:String)
 	{
-		#if SScript
+		#if (SScript >= "3.0.0")
 		var hs:HScript = parent.hscript;
 		if(hs == null)
 		{
@@ -79,7 +79,7 @@ class HScript extends SScript
 
 	override function preset()
 	{
-		#if SScript
+		#if (SScript >= "3.0.0")
 		super.preset();
 
 		// Some very commonly used classes
@@ -198,7 +198,7 @@ class HScript extends SScript
 		#end
 	}
 
-	public function executeCode(?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null):TeaCall
+	public function executeCode(?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null):SCall
 	{
 		if (funcToRun == null) return null;
 
@@ -224,7 +224,7 @@ class HScript extends SScript
 		return callValue;
 	}
 
-	public function executeFunction(funcToRun:String = null, funcArgs:Array<Dynamic>):TeaCall
+	public function executeFunction(funcToRun:String = null, funcArgs:Array<Dynamic>):SCall
 	{
 		if (funcToRun == null)
 			return null;
@@ -236,8 +236,8 @@ class HScript extends SScript
 	{
 		#if LUA_ALLOWED
 		funk.addLocalCallback("runHaxeCode", function(codeToRun:String, ?varsToBring:Any = null, ?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null):Dynamic {
-			var retVal:TeaCall = null;
-			#if SScript
+			var retVal:SCall = null;
+			#if (SScript >= "3.0.0")
 			initHaxeModule(funk);
 			funk.hscript.doString(codeToRun);
 			if(varsToBring != null)
@@ -266,7 +266,7 @@ class HScript extends SScript
 		});
 		
 		funk.addLocalCallback("runHaxeFunction", function(funcToRun:String, ?funcArgs:Array<Dynamic> = null) {
-			#if SScript
+			#if (SScript >= "3.0.0")
 			var callValue = funk.hscript.executeFunction(funcToRun, funcArgs);
 			if (!callValue.succeeded)
 			{
@@ -293,12 +293,12 @@ class HScript extends SScript
 			if (c == null)
 				c = Type.resolveEnum(str + libName);
 
-			#if SScript
+			#if (SScript >= "3.0.3")
 			if (c != null)
 				SScript.globalVariables[libName] = c;
 			#end
 
-			#if SScript
+			#if (SScript >= "3.0.0")
 			if (funk.hscript != null)
 			{
 				try {
@@ -316,7 +316,7 @@ class HScript extends SScript
 		#end
 	}
 
-	#if SScript
+	#if (SScript >= "3.0.3")
 	override public function destroy()
 	{
 		origin = null;
