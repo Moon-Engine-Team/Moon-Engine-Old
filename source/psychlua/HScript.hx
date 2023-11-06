@@ -5,6 +5,7 @@ import objects.Character;
 import psychlua.FunkinLua;
 import psychlua.CustomSubstate;
 
+
 #if sys
 import sys.FileSystem;
 import sys.io.File;
@@ -12,6 +13,7 @@ import sys.io.File;
 
 #if (HSCRIPT_ALLOWED && SScript >= "3.0.0")
 import tea.SScript;
+import SCall
 class HScript extends SScript
 {
 	public var parentLua:FunkinLua;
