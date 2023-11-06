@@ -11,7 +11,7 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 
-#if (HSCRIPT_ALLOWED && SScript >= "3.0.0")
+#if HSCRIPT_ALLOWED
 import tea.SScript;
 class HScript extends SScript
 {
@@ -19,18 +19,15 @@ class HScript extends SScript
 	
 	public static function initHaxeModule(parent:FunkinLua)
 	{
-		#if (SScript >= "3.0.0")
 		if(parent.hscript == null)
 		{
 			trace('initializing haxe interp for: ${parent.scriptName}');
 			parent.hscript = new HScript(parent);
 		}
-		#end
 	}
 
 	public static function initHaxeModuleCode(parent:FunkinLua, code:String)
 	{
-		#if (SScript >= "3.0.0")
 		var hs:HScript = parent.hscript;
 		if(hs == null)
 		{
@@ -49,7 +46,6 @@ class HScript extends SScript
 						PlayState.instance.addTextToDebug('ERROR ON LOADING (${hs.origin}): ${e.message.substr(0, e.message.indexOf('\n'))}', FlxColor.RED);
 			}
 		}
-		#end
 	}
 
 	public var origin:String;
@@ -80,7 +76,6 @@ class HScript extends SScript
 
 	override function preset()
 	{
-		#if (SScript >= "3.0.0")
 		super.preset();
 
 		// Some very commonly used classes
@@ -196,7 +191,6 @@ class HScript extends SScript
 		set('remove', function(obj:FlxBasic, splice:Bool = false) PlayState.instance.remove(obj, splice));
 		
 		set('Math', Math);
-		#end
 	}
 
 	public function executeCode(?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null):TeaCall
