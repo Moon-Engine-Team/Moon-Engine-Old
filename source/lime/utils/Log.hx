@@ -1,5 +1,4 @@
 package lime.utils;
-#if !macro
 
 import openfl.Lib;
 /*
@@ -195,5 +194,4 @@ class Log
 		#end
 	}
 }
-#end
 		    
