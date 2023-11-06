@@ -11,7 +11,7 @@ import sys.io.File;
 #end
 
 #if (HSCRIPT_ALLOWED && SScript >= "3.0.0")
-import tea.SScript;
+import SScript;
 class HScript extends SScript
 {
 	public var parentLua:FunkinLua;
