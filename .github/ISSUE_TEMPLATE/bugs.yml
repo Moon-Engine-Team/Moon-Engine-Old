@@ -33,6 +33,7 @@ body:
       label: "What is your build target?"
       options:
         - "Windows"
+        - "Android"
         - "Linux"
         - "Mac"
         - "HTML5"
