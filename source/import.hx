@@ -1,5 +1,4 @@
 #if !macro
-  
 //Discord API
 #if desktop
 import backend.Discord;
@@ -23,10 +22,6 @@ import backend.BaseStage;
 import backend.Difficulty;
 import backend.Mods;
 
-#if android
-import backend.AndroidDialogsExtend;
-import extension.devicelang.DeviceLanguage;
-#end
 
 import objects.Alphabet;
 import objects.BGSprite;
