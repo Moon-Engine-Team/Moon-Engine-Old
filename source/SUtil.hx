@@ -15,7 +15,10 @@ import haxe.CallStack;
 import haxe.io.Path;
 import sys.FileSystem;
 import sys.io.File;
+#if !flash
 import flash.system.System;
+end
+
 
 
 /**
